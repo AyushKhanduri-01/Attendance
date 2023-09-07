@@ -57,14 +57,14 @@
                     app:srcCompat="@drawable/img" />
 
                 <EditText
-                    android:id="@+id/userid"
+                    android:id="@+id/email"
                     android:layout_width="304dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
                     android:background="#FAF5F5"
                     android:ems="10"
                     android:hint="User ID"
-                    android:inputType="number" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
