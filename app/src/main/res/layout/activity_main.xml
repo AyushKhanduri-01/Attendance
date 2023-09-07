@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -12,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,8 +35,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="@drawable/bachgroundgehu"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/bachgroundgehu">
 
 
             <LinearLayout
