@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_1"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#53728C"
+        android:background="@drawable/img_1"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,8 +101,8 @@
 
             <Button
                 android:id="@+id/login"
-                android:layout_width="368dp"
-                android:layout_height="69dp"
+                android:layout_width="349dp"
+                android:layout_height="46dp"
                 android:background="#1E88E5"
                 android:text="LOGIN"
                 android:textColor="#F1EEEE"
@@ -109,10 +110,9 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.627"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintVertical_bias="0.309" />
+                app:layout_constraintVertical_bias="0.247" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
