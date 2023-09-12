@@ -29,7 +29,7 @@ public class Deatils_Form extends AppCompatActivity {
         name=findViewById(R.id.name);
         section=findViewById(R.id.section);
         rollno=findViewById(R.id.rollno);
-        id=findViewById(R.id.rollno);
+        id=findViewById(R.id.Id);
         submit=findViewById(R.id.submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
