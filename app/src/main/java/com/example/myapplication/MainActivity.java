@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseDatabase database;
     private DatabaseReference  dr ;
+
+    private boolean flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,16 +81,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void  openScanner(){
-       ScanOptions options = new ScanOptions();
-       options.setPrompt("Volume up to flash on");
-       options.setBeepEnabled(true);
-       options.setOrientationLocked(true);
-       options.setCaptureActivity(ScannerPage.class);
-       barLauncher.launch(options);
+
+            ScanOptions options = new ScanOptions();
+            options.setPrompt("Volume up to flash on");
+            options.setBeepEnabled(true);
+            options.setOrientationLocked(true);
+            options.setCaptureActivity(ScannerPage.class);
+            barLauncher.launch(options);
     }
 
     ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(),result->{
-        if(result.getContents() != null)
+        if(result.getContents() != null )
         {
 
              qroutput=result.getContents();
@@ -95,13 +99,14 @@ public class MainActivity extends AppCompatActivity {
                  @Override
                  public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-
-                     if(snapshot.exists()){
+                     if(snapshot.exists() && flag){
                          DataSnapshot firstChild = snapshot.getChildren().iterator().next();
                          qrinput = String.valueOf(firstChild.child("key").getValue());
                          if(qrinput.equals(qroutput)){
-                             Toast.makeText(MainActivity.this, "Matched", Toast.LENGTH_SHORT).show();
-                             openScanner();
+                             Intent intent=new Intent(getApplicationContext(),Deatils_Form.class);
+                             startActivity(intent);
+                             flag = false;
+
                          }
                          else{
                              Toast.makeText(MainActivity.this, "QR not matched : Scan Again", Toast.LENGTH_SHORT).show();
@@ -109,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                          }
                      }
                      else {
-                         Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+
                      }
                  }
 
