@@ -37,17 +37,19 @@ public class Deatils_Form extends AppCompatActivity {
             public void onClick(View view) {
 
                 Map<String ,String> map = new HashMap<>();
-                map.put("Name",name.getText().toString());
+                map.put("NameofStd",name.getText().toString());
                 map.put("Section",section.getText().toString());
-                map.put("Roll no",rollno.getText().toString());
-                map.put("Student Id",id.getText().toString());
+                map.put("RollNo",rollno.getText().toString());
+                map.put("StudentID",id.getText().toString());
 
                 try {
 
-                   FirebaseFirestore.getInstance().collection("Student Data").add(map).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    FirebaseFirestore.getInstance().collection("TheStudents").document(rollno.getText().toString()).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
-                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                        public void onComplete(@NonNull Task<Void> task) {
                             Toast.makeText(Deatils_Form.this, "Done", Toast.LENGTH_SHORT).show();
+                            finish();
+
                         }
                     });
                 }
