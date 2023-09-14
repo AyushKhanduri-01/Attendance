@@ -21,7 +21,6 @@ import java.util.Map;
 public class Deatils_Form extends AppCompatActivity {
     EditText name,section,rollno,id;
     Button submit;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +43,7 @@ public class Deatils_Form extends AppCompatActivity {
 
                 try {
 
-                    FirebaseFirestore.getInstance().collection("TheStudents").document(rollno.getText().toString()).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    FirebaseFirestore.getInstance().collection("TheStudents").document(id.getText().toString()).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             Toast.makeText(Deatils_Form.this, "Done", Toast.LENGTH_SHORT).show();
@@ -56,8 +55,6 @@ public class Deatils_Form extends AppCompatActivity {
                 catch (Exception e){
                     e.toString();
                 }
-
-
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
