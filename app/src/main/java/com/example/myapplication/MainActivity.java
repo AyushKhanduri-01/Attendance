@@ -26,13 +26,15 @@ import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
 public class MainActivity extends AppCompatActivity {
-    private  EditText email,password;
+    public  EditText email,password;
     private  Button login;
     private String qrinput;
     private String qroutput;
     private FirebaseAuth auth;
     private FirebaseDatabase database;
     private DatabaseReference  dr ;
+    public String student_id;
+    private  String id;
 
     private boolean flag = true;
 
@@ -57,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private  void authentication() {
-        String Email = email.getText().toString();
+        id=email.getText().toString();
+        String Email = email.getText().toString()+"@gmail.com";
         String Password = password.getText().toString();
 
         if (Email.isEmpty() || Password.isEmpty()) {
@@ -74,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else {
                         Toast.makeText(MainActivity.this, "Invalid Email address and Password",Toast.LENGTH_SHORT).show();
+                        email.setText("");
+                        password.setText("");
                     }
                 }
             });
@@ -103,13 +108,16 @@ public class MainActivity extends AppCompatActivity {
                          DataSnapshot firstChild = snapshot.getChildren().iterator().next();
                          qrinput = String.valueOf(firstChild.child("key").getValue());
                          if(qrinput.equals(qroutput)){
-                             Intent intent=new Intent(getApplicationContext(),Deatils_Form.class);
-                             startActivity(intent);
+
+                              Intent intent = new Intent(getApplicationContext(),faceMatching.class);
+                              intent.putExtra("id",id);
+                              startActivity(intent);
+//                             Intent intent=new Intent(getApplicationContext(),Deatils_Form.class);
+//                             startActivity(intent);
                              flag = false;
 
                          }
                          else{
-                             Toast.makeText(MainActivity.this, "QR not matched : Scan Again", Toast.LENGTH_SHORT).show();
                              openScanner();
                          }
                      }
@@ -125,9 +133,11 @@ public class MainActivity extends AppCompatActivity {
              });
 
 
-
-
         }
     });
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        moveTaskToBack(true);
+    }
 }
