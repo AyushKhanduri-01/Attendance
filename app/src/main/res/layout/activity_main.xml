@@ -67,7 +67,7 @@
                     android:layout_weight="0"
                     android:background="#FAF5F5"
                     android:ems="10"
-                    android:hint="User ID"
+                    android:hint="Student  ID"
                     android:inputType="text" />
             </LinearLayout>
 
