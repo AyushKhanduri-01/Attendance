@@ -22,16 +22,56 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.41">
 
+        <TextView
+            android:id="@+id/Id"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:gravity="center"
+            android:textColor="#140C0C"
+            android:textColorHighlight="#151111"
+            android:textColorHint="#7D6B6B"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="text"
+            android:textColor="#140C0C"
+            android:textColorHint="#7D6B6B"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:gravity="center"
             android:hint="Name"
             android:inputType="text"
-            android:textColor="#100C0C"
+            android:textColor="#140C0C"
+            android:textColorHint="#7D6B6B"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/sub_code"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Subject Code (ABCXXX)"
+            android:inputType=""
+            android:textColor="#140C0C"
             android:textColorHint="#7D6B6B"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -39,13 +79,13 @@
         <EditText
             android:id="@+id/section"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:gravity="center"
             android:hint="Section"
             android:inputType="text"
-            android:textColor="#100C0C"
+            android:textColor="#140C0C"
             android:textColorHint="#7D6B6B"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -53,29 +93,14 @@
         <EditText
             android:id="@+id/rollno"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:gravity="center"
             android:hint="Class RollNO"
             android:inputType="number"
-            android:textColor="#100C0C"
+            android:textColor="#140C0C"
             android:textColorHighlight="#1B1717"
-            android:textColorHint="#7D6B6B"
-            android:textSize="24dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/Id"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Student ID"
-            android:inputType="number"
-            android:textColor="#100C0C"
-            android:textColorHighlight="#151111"
             android:textColorHint="#7D6B6B"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -83,15 +108,15 @@
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="40dp"
             android:background="#213EF4"
             android:gravity="center"
             android:text="Submit"
-            android:textColor="#F3EEEE"
+            android:textColor="#EFE9E9"
             android:textColorHint="#E4DDDD"
             android:textSize="24dp"
             android:textStyle="bold" />

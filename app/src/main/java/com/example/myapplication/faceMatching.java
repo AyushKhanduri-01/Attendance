@@ -127,6 +127,7 @@ public class faceMatching extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                intent.putExtra("id",path);
                 startActivity(intent);
             }
         });
