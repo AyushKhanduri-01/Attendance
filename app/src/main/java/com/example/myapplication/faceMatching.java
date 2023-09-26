@@ -188,6 +188,17 @@ public class faceMatching extends AppCompatActivity {
                            }
                        } catch (JSONException e){
                            Toast.makeText(faceMatching.this, "error to fetch response", Toast.LENGTH_SHORT).show();
+                           StorageReference ref = storageReference.child(path+"new");
+                           ref.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                               @Override
+                               public void onComplete(@NonNull Task<Void> task) {
+                               }
+                           }).addOnFailureListener(new OnFailureListener() {
+                               @Override
+                               public void onFailure(@NonNull Exception e) {
+
+                               }
+                           });
                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                            startActivity(intent);
                        }
