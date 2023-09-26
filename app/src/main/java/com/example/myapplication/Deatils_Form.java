@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 
 public class Deatils_Form extends AppCompatActivity {
     EditText name,section,rollno,sub_code;
@@ -41,20 +42,17 @@ public class Deatils_Form extends AppCompatActivity {
 
         Intent intent = getIntent();
         String Studient_id = intent.getStringExtra("id");
-        id.setText(Studient_id.toString());
+        id.setText(Studient_id);
 
         java.util.Date currentDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         String formattedDate = dateFormat.format(currentDate);
         Date.setText(formattedDate);
 
-        subcode = sub_code.getText().toString();
-        subcode= subcode.toUpperCase();
-        subcode=subcode.replaceAll("[^a-zA-Z0-9]", "");
 
 
 
-        submit.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 
@@ -62,14 +60,17 @@ public class Deatils_Form extends AppCompatActivity {
 
                map.put("StudentID",Studient_id);
                 map.put("Date",formattedDate);
-                map.put("Subject_Code",subcode);
+                map.put("Subject_Code",sub_code.getText().toString().toUpperCase().replaceAll("[^a-zA-Z0-9]", ""));
                 map.put("NameofStd",name.getText().toString());
                 map.put("Section",section.getText().toString().toUpperCase());
                 map.put("RollNo",rollno.getText().toString());
 
                 try {
 
-                    FirebaseFirestore.getInstance().collection("TheStudents").document(id.getText().toString()).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    //FirebaseFirestore.getInstance().collection("TheStudents").document(id.getText().toString()).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                     FirebaseFirestore.getInstance().collection("TheStudents").document(UUID.randomUUID().toString()).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             Toast.makeText(Deatils_Form.this, "Done", Toast.LENGTH_SHORT).show();
