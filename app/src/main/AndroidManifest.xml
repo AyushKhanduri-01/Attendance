@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,10 +19,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+
         <activity
             android:name=".faceMatching"
             android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"/>
+
+
+
         <activity
             android:name=".Deatils_Form"
             android:exported="false"
@@ -38,11 +46,15 @@
             android:name=".MainActivity"
             android:exported="true"
             android:parentActivityName=".MainActivity">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
 
 
