@@ -224,9 +224,11 @@ public class faceMatching extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-
+                    // remove this toast
                     // Toast.makeText(MainActivity.this, "captured  : bitmap = " + bitmap, Toast.LENGTH_SHORT).show();
                     cameraProvider.unbindAll();
+
+
                 }
 
                 @Override
